@@ -48,7 +48,7 @@ module Paperclip
       def flush_writes
         @queued_for_write.each do |style, file|
           Timeout::timeout(@timeout, FtpTimeout) do
-            file.close
+            #file.close -- Close ERROR
             remote_path = ftp_path(style)
             log("uploading #{remote_path}")
             first_try = true
